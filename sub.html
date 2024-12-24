@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Year Gateway Classes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .subject {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .subject:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #2980b9;
+        }
+
+        .subject a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .subject a:hover {
+            color: #ffdd00;
+        }
+
+        .subject::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .subject:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @media screen and (max-width: 900px) {
+            .subjects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>First Year Gateway Classes</h1>
+    <div class="subjects">
+        <div class="subject"><a href="https://example.com/subject1" target="_blank">Subject 1</a></div>
+        <div class="subject"><a href="https://example.com/subject2" target="_blank">Subject 2</a></div>
+        <div class="subject"><a href="https://example.com/subject3" target="_blank">Subject 3</a></div>
+        <div class="subject"><a href="https://example.com/subject4" target="_blank">Subject 4</a></div>
+        <div class="subject"><a href="https://example.com/subject5" target="_blank">Subject 5</a></div>
+        <div class="subject"><a href="https://example.com/subject6" target="_blank">Subject 6</a></div>
+        <div class="subject"><a href="https://example.com/subject7" target="_blank">Subject 7</a></div>
+        <div class="subject"><a href="https://example.com/subject8" target="_blank">Subject 8</a></div>
+        <div class="subject"><a href="https://example.com/subject9" target="_blank">Subject 9</a></div>
+        <div class="subject"><a href="https://example.com/subject10" target="_blank">Subject 10</a></div>
+    </div>
+
+</body>
+</html>
