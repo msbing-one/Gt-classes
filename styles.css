@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+h1 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  margin: 0;
+}
+.folder {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.folder h2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.lectures {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: none;
+}
+.lectures li {
+  margin: 8px 0;
+}
+.lectures a {
+  text-decoration: none;
+  color: #2196F3;
+  font-size: 16px;
+  padding: 5px 10px;
+  display: block;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+}
+.lectures a:hover {
+  background-color: #b3d9ff;
+}
+.main-content {
+  padding: 20px;
+}
+.video-page {
+  display: none;
+  padding: 4px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.video-info {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+video {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.back-btn, .notes-btn, .dpp-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+}
+.back-btn:hover, .notes-btn:hover, .dpp-btn:hover {
+  background-color: #45a049;
+}
+.pdf-links {
+  margin-top: 10px;
+}
+.pdf-links a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.pdf-links a:hover {
+  background-color: #1976d2;
+}
