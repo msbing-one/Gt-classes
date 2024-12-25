@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Path Link</title>
+    <style>
+        /* Reset some default styles for cleaner appearance */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Hide the link display */
+        #path-link {
+            display: none;
+        }
+
+        /* Style for iframe container */
+        #iframe-container {
+            width: 100%;
+            max-width: 100%;
+            height: 250px; /* Fixed height for rectangular shape */
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        }
+
+        /* Fullscreen button style */
+        #fullscreen-btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mechanical: Unit 1 lecture 1</h1>
+    <!-- Full link display is hidden -->
+    <pre id="path-link">Loading...</pre>
+    <div id="iframe-container"></div> <!-- Container for iframe -->
+    <button id="fullscreen-btn" style="display: none;">Go Fullscreen</button> <!-- Fullscreen button -->
+
+    <script>
+        async function fetchHTML() {
+            try {
+                // Fetch the HTML content from the URL
+                const response = await fetch('https://u.pcloud.link/publink/show?code=XZ9LU55Zh3Spos9PjPSbRNtomDREFkoW9gQy');
+                if (!response.ok) throw new Error('Failed to fetch HTML content');
+                const htmlText = await response.text();
+
+                // Parse the HTML to extract the publinkData variable containing the path
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+
+                // Find the script tag containing the publinkData
+                const scriptTags = doc.querySelectorAll('script');
+                let publinkDataScript = '';
+
+                scriptTags.forEach(script => {
+                    if (script.textContent.includes('publinkData')) {
+                        publinkDataScript = script.textContent;
+                    }
+                });
+
+                if (publinkDataScript) {
+                    // Extract the JSON-like object from the script
+                    const dataMatch = publinkDataScript.match(/var publinkData = ({.*?});/s);
+                    if (dataMatch && dataMatch[1]) {
+                        const publinkData = JSON.parse(dataMatch[1]);
+                        if (publinkData && publinkData.variants && publinkData.variants[0]) {
+                            const pathLink = publinkData.variants[0].path;
+
+                            // Declare the base URL
+                            const baseURL = 'https://p-def6.pcloud.com';
+
+                            // Combine the base URL and pathLink
+                            const fullLink = baseURL + pathLink;
+
+                            // Create an iframe and set its source to the fullLink
+                            const iframe = document.createElement('iframe');
+                            iframe.src = fullLink;
+
+                            // Append the iframe to the container
+                            document.getElementById('iframe-container').appendChild(iframe);
+
+                            // Show the fullscreen button
+                            const fullscreenBtn = document.getElementById('fullscreen-btn');
+                            fullscreenBtn.style.display = 'inline-block';
+
+                            // Toggle fullscreen mode when the button is clicked
+                            fullscreenBtn.addEventListener('click', () => {
+                                if (iframe.requestFullscreen) {
+                                    iframe.requestFullscreen();
+                                } else if (iframe.mozRequestFullScreen) { // Firefox
+                                    iframe.mozRequestFullScreen();
+                                } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari
+                                    iframe.webkitRequestFullscreen();
+                                } else if (iframe.msRequestFullscreen) { // IE/Edge
+                                    iframe.msRequestFullscreen();
+                                }
+                            });
+                        } else {
+                            document.getElementById('path-link').textContent = 'Error: Path not found in the data';
+                        }
+                    } else {
+                        document.getElementById('path-link').textContent = 'Error: Could not find publinkData object';
+                    }
+                } else {
+                    document.getElementById('path-link').textContent = 'Error: publinkData script not found';
+                }
+            } catch (error) {
+                document.getElementById('path-link').textContent = 'Error: ' + error.message;
+            }
+        }
+
+        fetchHTML();
+    </script>
+</body>
+</html>
