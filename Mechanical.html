@@ -95,18 +95,21 @@
     // Base path for lecture links
     const basePath = 'Me/';
 
-    // Data structure for units and lectures (Unit 6 has been removed)
+    // Data structure for units and lectures
     const units = [
-      { id: 'unit1', title: 'UNIT:1 Introduction to Mechanics', lectures: 5 },
-      { id: 'unit2', title: 'UNIT:2 Introduction to IC Engines and Electric Vehicles', lectures: 5 },
-      { id: 'unit3', title: 'UNIT:3 Introduction to Refrigeration and Air-Conditioning', lectures: 5 },
-      { id: 'unit4', title: 'UNIT:4 Introduction to Fluid Mechanics and Applications', lectures: 5 },
-      { id: 'unit5', title: 'UNIT:5 Introduction to Measurement and Mechatronics', lectures: 5 }
+      { id: 'unit1', title: 'Introduction to Mechanics', lectures: 5 },
+      { id: 'unit2', title: 'Introduction to IC Engines and Electric Vehicles', lectures: 5 },
+      { id: 'unit3', title: 'Introduction to Refrigeration and Air-Conditioning', lectures: 5 },
+      { id: 'unit4', title: 'Introduction to Fluid Mechanics and Applications', lectures: 5 },
+      { id: 'unit5', title: 'Introduction to Measurement and Mechatronics', lectures: 5 }
     ];
 
     // Function to open a lecture
     function openLecture(unit, lecture) {
-      const url = `${basePath}${unit}/L${String(lecture).padStart(2, '0')}.html`;
+      // Convert unit like 'unit1' to 'U1', 'unit2' to 'U2', etc.
+      const unitCode = 'U' + unit.replace('unit', '').toUpperCase();
+      
+      const url = `${basePath}${unitCode}/L${String(lecture).padStart(2, '0')}.html`;
       window.open(url, '_blank');
     }
 
@@ -142,7 +145,7 @@
           const lectureLink = document.createElement('a');
           lectureLink.href = '#';
           lectureLink.textContent = `Lecture ${i}`;
-          lectureLink.setAttribute('onclick', `openLecture('${unit.id.toUpperCase()}', ${i})`);
+          lectureLink.setAttribute('onclick', `openLecture('${unit.id}', ${i})`);
           lectureItem.appendChild(lectureLink);
           lectureList.appendChild(lectureItem);
         }
