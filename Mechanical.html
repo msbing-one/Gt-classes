@@ -4,137 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lecture Folders</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Reset default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .folder {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .folder h2 {
+      cursor: pointer;
+      font-size: 18px;
+      color: #2a7f5f;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding: 5px 0;
+      font-weight: bold;
+    }
+
+    .folder h2:hover {
+      color: #2a5b46;
+    }
+
+    .lectures {
+      list-style: none;
+      padding-left: 20px;
+      display: none; /* Initially hidden */
+    }
+
+    .lectures li {
+      margin-bottom: 8px;
+    }
+
+    .lectures a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .lectures a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+
+    .lectures li a:active {
+      color: #0056b3;
+    }
+
+    /* Add a little spacing between units */
+    .folder + .folder {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
   <h1>Mechanical Units</h1>
 
-  <div class="main-content">
-    <!-- Unit 1 -->
-    <div class="folder" id="unit1">
-      <h2 onclick="toggleLectures('lecturesUnit1')">Unit 1: Introduction to Mechanics</h2>
-      <ul class="lectures" id="lecturesUnit1">
-        <li>
-          <a href="#" onclick="openLecture('U1', 1)">Lecture 1</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U1', 2)">Lecture 2</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U1', 3)">Lecture 3</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U1', 4)">Lecture 4</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U1', 5)">Lecture 5</a> 
-        </li>
-      </ul>
-    </div>
-
-    <!-- Unit 2 -->
-    <div class="folder" id="unit2">
-      <h2 onclick="toggleLectures('lecturesUnit2')">Unit 2: Introduction to IC Engines and Electric Vehicles</h2>
-      <ul class="lectures" id="lecturesUnit2">
-        <li>
-          <a href="#" onclick="openLecture('U2', 1)">Lecture 1</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U2', 2)">Lecture 2</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U2', 3)">Lecture 3</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U2', 4)">Lecture 4</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U2', 5)">Lecture 5</a> 
-        </li>
-      </ul>
-    </div>
-
-    <!-- Unit 3 -->
-    <div class="folder" id="unit3">
-      <h2 onclick="toggleLectures('lecturesUnit3')">Unit 3: Introduction to Refrigeration and Air-Conditioning</h2>
-      <ul class="lectures" id="lecturesUnit3">
-        <li>
-          <a href="#" onclick="openLecture('U3', 1)">Lecture 1</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U3', 2)">Lecture 2</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U3', 3)">Lecture 3</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U3', 4)">Lecture 4</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U3', 5)">Lecture 5</a> 
-        </li>
-      </ul>
-    </div>
-
-    <!-- Unit 4 -->
-    <div class="folder" id="unit4">
-      <h2 onclick="toggleLectures('lecturesUnit4')">Unit 4: Introduction to Fluid Mechanics and Applications</h2>
-      <ul class="lectures" id="lecturesUnit4">
-        <li>
-          <a href="#" onclick="openLecture('U4', 1)">Lecture 1</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U4', 2)">Lecture 2</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U4', 3)">Lecture 3</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U4', 4)">Lecture 4</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U4', 5)">Lecture 5</a> 
-        </li>
-      </ul>
-    </div>
-
-    <!-- Unit 5 -->
-    <div class="folder" id="unit5">
-      <h2 onclick="toggleLectures('lecturesUnit5')">Unit 5: Introduction to Measurement and Mechatronics</h2>
-      <ul class="lectures" id="lecturesUnit5">
-        <li>
-          <a href="#" onclick="openLecture('U5', 1)">Lecture 1</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U5', 2)">Lecture 2</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U5', 3)">Lecture 3</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U5', 4)">Lecture 4</a> 
-        </li>
-        <li>
-          <a href="#" onclick="openLecture('U5', 5)">Lecture 5</a> 
-        </li>
-      </ul>
-    </div>
-
+  <div class="main-content" id="unitsContainer">
+    <!-- Units will be dynamically populated -->
   </div>
 
   <script>
+    // Base path for lecture links
     const basePath = 'Me/';
 
+    // Data structure for units and lectures (Unit 6 has been removed)
+    const units = [
+      { id: 'unit1', title: 'UNIT:1 Introduction to Mechanics', lectures: 5 },
+      { id: 'unit2', title: 'UNIT:2 Introduction to IC Engines and Electric Vehicles', lectures: 5 },
+      { id: 'unit3', title: 'UNIT:3 Introduction to Refrigeration and Air-Conditioning', lectures: 5 },
+      { id: 'unit4', title: 'UNIT:4 Introduction to Fluid Mechanics and Applications', lectures: 5 },
+      { id: 'unit5', title: 'UNIT:5 Introduction to Measurement and Mechatronics', lectures: 5 }
+    ];
+
+    // Function to open a lecture
     function openLecture(unit, lecture) {
       const url = `${basePath}${unit}/L${String(lecture).padStart(2, '0')}.html`;
       window.open(url, '_blank');
     }
 
+    // Function to toggle lecture visibility
     function toggleLectures(id) {
       const lectureList = document.getElementById(id);
       lectureList.style.display = lectureList.style.display === "none" ? "block" : "none";
     }
+
+    // Dynamically render units and lectures
+    function renderUnits() {
+      const container = document.getElementById('unitsContainer');
+      units.forEach(unit => {
+        const unitDiv = document.createElement('div');
+        unitDiv.classList.add('folder');
+        unitDiv.id = unit.id;
+
+        // Unit title
+        const unitHeader = document.createElement('h2');
+        unitHeader.textContent = `${unit.title}`;
+        unitHeader.setAttribute('onclick', `toggleLectures('${unit.id}-lectures')`);
+        unitDiv.appendChild(unitHeader);
+
+        // Lecture list
+        const lectureList = document.createElement('ul');
+        lectureList.classList.add('lectures');
+        lectureList.id = `${unit.id}-lectures`;
+        lectureList.style.display = 'none';
+
+        // Add lectures to the list
+        for (let i = 1; i <= unit.lectures; i++) {
+          const lectureItem = document.createElement('li');
+          const lectureLink = document.createElement('a');
+          lectureLink.href = '#';
+          lectureLink.textContent = `Lecture ${i}`;
+          lectureLink.setAttribute('onclick', `openLecture('${unit.id.toUpperCase()}', ${i})`);
+          lectureItem.appendChild(lectureLink);
+          lectureList.appendChild(lectureItem);
+        }
+
+        unitDiv.appendChild(lectureList);
+        container.appendChild(unitDiv);
+      });
+    }
+
+    // Initialize the page
+    renderUnits();
   </script>
 
 </body>
