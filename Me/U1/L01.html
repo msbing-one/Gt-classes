@@ -101,10 +101,15 @@
     </div>
 
     <script>
+        // Links declared as variables for easy replacement
+        const baseLink = 'https://u.pcloud.link/publink/show?code=XZ9LU55Zh3Spos9PjPSbRNtomDREFkoW9gQy';
+        const notesLink = 'notes.pdf';
+        const dppLink = 'https://dark-shadowblade.github.io/NoDpp/';
+
         async function fetchHTML() {
             try {
                 // Fetch the HTML content from the URL
-                const response = await fetch('https://u.pcloud.link/publink/show?code=XZ9LU55Zh3Spos9PjPSbRNtomDREFkoW9gQy');
+                const response = await fetch(baseLink);
                 if (!response.ok) throw new Error('Failed to fetch HTML content');
                 const htmlText = await response.text();
 
@@ -166,12 +171,12 @@
 
                             // Open Notes PDF when the Notes button is clicked
                             notesBtn.addEventListener('click', () => {
-                                window.open('notes.pdf', '_blank');
+                                window.open(notesLink, '_blank');
                             });
 
                             // Open DPP PDF when the DPP button is clicked
                             dppBtn.addEventListener('click', () => {
-                                window.open('https://dark-shadowblade.github.io/NoDpp/', '_blank');
+                                window.open(dppLink, '_blank');
                             });
 
                         } else {
